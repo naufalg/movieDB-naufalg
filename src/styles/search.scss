@@ -1,0 +1,31 @@
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+.searchTitle{
+    font-size: 1.3em;
+}
+
+// media query
+// large screen
+@media (max-width: 1200px) {
+
+}
+
+/* small screen */
+@media (max-width: 992px) {
+    .searchTitle{
+        font-size: 1.5em;
+    }
+}
+
+/* tablet */
+@media (max-width: 768px) {
+    .searchTitle{
+        font-size: 1.3em;
+    }
+}
+
+/* phone */
+@media (max-width: 576px) {
+}
