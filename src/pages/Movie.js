@@ -27,15 +27,17 @@ export default function Movie() {
 
   const movieData = useSelector((state) => state.getDetailReducer.data);
   const loadDetail = useSelector((state) => state.getDetailReducer.isLoading);
-  const errorMsg = useSelector((state) => state.getDetailReducer.isError);
-  console.log("errorMsg", errorMsg);
+  const errorDetail = useSelector((state) => state.getDetailReducer.isError);
+  const errorMsg = useSelector((state) => state.getDetailReducer.error);
+
+  console.log("errorDetail", errorDetail);
 
   return (
     <div>
       <NavbarTop className="mb-5" />
       <Container className="px-5 pt-4 mt-5">
         {loadDetail === false ? (
-          errorMsg === false ? (
+          errorDetail === false ? (
             <div>
               {movieData ? (
                 <Row className="mt-3">
@@ -94,7 +96,7 @@ export default function Movie() {
           ) : (
             <div>
               <Row className="text-center">
-                <h3 className="text-center">Network error</h3>
+                <h3 className="text-center">{errorMsg.data.Error || "Network error"}</h3>
               </Row>
             </div>
           )

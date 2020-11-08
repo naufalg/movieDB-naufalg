@@ -103,7 +103,7 @@ export default function Search() {
               <br />
               <br />
               <br />
-              <h3>{errorMsg.data.Error}</h3>
+              <h3>{errorMsg.data.Error || "Network error"}</h3>
             </div>
           )
         ) : (

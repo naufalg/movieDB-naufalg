@@ -34,7 +34,11 @@ export function getDetailActions(id) {
     const url1 = `http://www.omdbapi.com/?i=${movie_id}&plot=full&apikey=${api_key}`;
     axios
       .get(url1)
-      .then((result) => dispatch(getDetailSuccess(result.data)))
+      .then((result) =>
+        result.data.Response === "True"
+          ? dispatch(getDetailSuccess(result.data))
+          : dispatch(getDetailFailed(result))
+      )
       .catch((error) => dispatch(getDetailFailed(error)));
   };
 }

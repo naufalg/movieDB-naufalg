@@ -8,7 +8,7 @@ const initialDetailState = {
   data: [],
   isLoading: false,
   error: null,
-  isError: null,
+  isError: false,
 };
 const getDetailReducer = (state = initialDetailState, action) => {
   switch (action.type) {
