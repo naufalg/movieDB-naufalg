@@ -76,18 +76,16 @@ export default function NavbarBootstrap() {
         {/* loading modal */}
 
         <Container>
-          <Link
+          <Navbar.Brand
             onClick={() => {
               setShowLoading(true);
               window.location.href = `/`;
             }}
-            // to="/"
+            className="NavBrand goldman"
           >
-            <Navbar.Brand className="NavBrand goldman">
-              <Film size={30} />
-              &nbsp;&nbsp;MovieDB
-            </Navbar.Brand>{" "}
-          </Link>
+            <Film size={30} />
+            &nbsp;&nbsp;MovieDB
+          </Navbar.Brand>{" "}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mx-auto my-1">

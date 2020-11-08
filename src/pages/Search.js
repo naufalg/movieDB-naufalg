@@ -52,7 +52,8 @@ export default function Search() {
   const totalPage = Math.ceil(pageData / 10);
   console.log("totalPage", totalPage);
 
-  const errorMsg = useSelector((state) => state.getSearchReducer.isError);
+  const errorSearch = useSelector((state) => state.getSearchReducer.isError);
+  const errorMsg = useSelector((state) => state.getSearchReducer.error);
 
   return (
     <div>
@@ -60,14 +61,14 @@ export default function Search() {
       <Container className="px-5 pt-4 mt-5">
         <h3 className="searchTitle lato">{`Search result: ${searched}`}</h3>
         {loadData === false ? (
-          errorMsg === false ? (
+          errorSearch === false ? (
             <div>
               <Row className="mt-4 px-lg-4 ">
                 {searchData ? (
                   searchData.map((item, index) => (
-                    <Col xs={12} md={6} lg={3}>
+                    <Col key={index} xs={12} md={6} lg={3}>
                       <CardResponsive
-                        key={index}
+                        
                         movieId={item.imdbID}
                         image={item.Poster}
                         title={item.Title}
@@ -102,7 +103,7 @@ export default function Search() {
               <br />
               <br />
               <br />
-              <h3>Error Network</h3>
+              <h3>{errorMsg.data.Error}</h3>
             </div>
           )
         ) : (

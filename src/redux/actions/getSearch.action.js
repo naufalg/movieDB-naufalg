@@ -27,13 +27,17 @@ export function getSearchActions(searchInput, pageInput = 1) {
   return function (dispatch) {
     dispatch(getSearchRequest(searchInput));
     const searchParams = searchInput;
-    const pageShow = ``
+    const pageShow = ``;
     // console.log("movie_id", movie_id);
     const api_key = process.env.REACT_APP_OMDB_API_KEY;
     const url1 = `http://www.omdbapi.com/?apikey=${api_key}&s=${searchParams}&page=${pageInput}`;
     axios
       .get(url1)
-      .then((result) => dispatch(getSearchSuccess(result.data)))
+      .then((result) =>
+        result.data.Response === "True"
+          ? dispatch(getSearchSuccess(result.data))
+          : dispatch(getSearchFailed(result))
+      )
       .catch((error) => dispatch(getSearchFailed(error)));
   };
 }

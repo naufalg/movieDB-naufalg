@@ -10,8 +10,8 @@ import { Card, Button, Container, Row, Col, Spinner } from "react-bootstrap";
 import { BackspaceFill, StarFill } from "react-bootstrap-icons";
 
 // components
-import '../styles/movie.scss'
-import '../styles/font.scss'
+import "../styles/movie.scss";
+import "../styles/font.scss";
 import NavbarTop from "../components/web-elements/NavbarTop";
 
 export default function Movie() {
@@ -34,12 +34,8 @@ export default function Movie() {
     <div>
       <NavbarTop className="mb-5" />
       <Container className="px-5 pt-4 mt-5">
-        {errorMsg === false ? (
-          loadDetail === true ? (
-            <div className="mt-5 pt-5 text-center">
-              <Spinner animation="border" variant="info" />
-            </div>
-          ) : (
+        {loadDetail === false ? (
+          errorMsg === false ? (
             <div>
               {movieData ? (
                 <Row className="mt-3">
@@ -51,7 +47,7 @@ export default function Movie() {
                       alt=""
                     />
                   </Col>
-                  <Col className="pl-lg-5 pl-xl-2" md={12} lg={8}>
+                  <Col className="pl-lg-5 pl-xl-2 mt-4  mt-lg-0" md={12} lg={8}>
                     <h3 className="mb-0">{`${movieData.Title}`}</h3>
                     <h5>{`(${movieData.Year})`}</h5>
                     <p>
@@ -84,27 +80,27 @@ export default function Movie() {
                       <strong>Cast:</strong>{" "}
                       {movieData.Actors !== "N/A" ? movieData.Actors : ""}
                     </p>
-                    <p>{movieData.Plot}</p>
+                    <p className="mt-md-4">{movieData.Plot}</p>
                   </Col>
                 </Row>
               ) : (
-                {
-                  /* <Spinner
+                <Spinner
                   className="text-center"
                   animation="border"
                   variant="info"
-                /> */
-                }
+                />
               )}
+            </div>
+          ) : (
+            <div>
+              <Row className="text-center">
+                <h3 className="text-center">Network error</h3>
+              </Row>
             </div>
           )
         ) : (
-          <div>
-            <Row className="text-center">
-              <h3 className="text-center">
-                Network error, Please try again or go back
-              </h3>
-            </Row>
+          <div className="mt-5 pt-5 text-center">
+            <Spinner animation="border" variant="info" />
           </div>
         )}
       </Container>
