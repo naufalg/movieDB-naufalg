@@ -32,7 +32,10 @@ export default function Home() {
   return (
     <div className="outer">
       <div className="centerDiv text-center">
-        <h4 className=" homeTitle goldman"><Film/>&nbsp;Movie DB</h4>
+        <h4 className=" homeTitle goldman">
+          <Film />
+          &nbsp;Movie DB
+        </h4>
         <small className="nameClass">by: naufalg</small>
         <Form
           autoComplete="off"
@@ -42,6 +45,7 @@ export default function Home() {
         >
           <InputGroup>
             <Form.Control
+              className="lato searchInput"
               name="name"
               placeholder="Search Movie"
               onChange={(event) => changeSearch(event)}
