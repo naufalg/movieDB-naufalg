@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <div className="outer">
       <div className="centerDiv text-center">
-        <h4 className=" homeTitle goldman">Home Movie DB</h4>
+        <h4 className=" homeTitle goldman">Movie DB</h4>
         <small className="nameClass">by: naufalg</small>
         <Form
           autoComplete="off"

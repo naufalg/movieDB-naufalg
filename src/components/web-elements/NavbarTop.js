@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, NavLink, Redirect } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { Search, Cart2 } from "react-bootstrap-icons";
 import {
@@ -28,12 +28,12 @@ import "../../styles/navbar.scss";
 export default function NavbarBootstrap() {
   const history = useHistory();
   const dispatch = useDispatch();
+  const params = useParams();
 
-  // const userData = useSelector((state) => state.userProfileReducer);
-  // console.log("userId", userData);
+  const searchInput = params.search || null;
 
   const [searchState, setSearchState] = useState({
-    name: "",
+    name: searchInput,
   });
 
   const changeSearch = (event) => {
@@ -83,8 +83,10 @@ export default function NavbarBootstrap() {
             }}
             className="NavBrand goldman"
           >
-            <Film size={30} />
-            &nbsp;&nbsp;MovieDB
+            <Link>
+              <Film size={30} />
+              &nbsp;&nbsp;MovieDB
+            </Link>
           </Navbar.Brand>{" "}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
