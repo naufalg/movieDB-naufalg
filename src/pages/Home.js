@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import { Form, FormControl, Button, InputGroup } from "react-bootstrap";
-import { Search } from "react-bootstrap-icons";
+import { Search, Film } from "react-bootstrap-icons";
 
 import "../styles/home.scss";
 import "../styles/font.scss";
@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <div className="outer">
       <div className="centerDiv text-center">
-        <h4 className=" homeTitle goldman">Movie DB</h4>
+        <h4 className=" homeTitle goldman"><Film/>&nbsp;Movie DB</h4>
         <small className="nameClass">by: naufalg</small>
         <Form
           autoComplete="off"
