@@ -1,21 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { useParams, Link, useHistory } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 // redux
 import { useSelector, useDispatch } from "react-redux";
 import { getDetailActions } from "../redux/actions/getDetail.action";
 
 // bootstrap
-import { Card, Button, Container, Row, Col, Spinner } from "react-bootstrap";
-import { BackspaceFill, StarFill } from "react-bootstrap-icons";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
+import { StarFill } from "react-bootstrap-icons";
 
 // components
 import "../styles/movie.scss";
 import "../styles/font.scss";
 import NavbarTop from "../components/web-elements/NavbarTop";
+import placeholder from "../components/assets/placeholder-vertical.jpg";
 
 export default function Movie() {
-  const history = useHistory();
+  // const history = useHistory();
   const dispatch = useDispatch();
   const params = useParams();
 
@@ -23,7 +24,7 @@ export default function Movie() {
 
   useEffect(() => {
     dispatch(getDetailActions(movieId));
-  }, [dispatch]);
+  }, [dispatch, movieId]);
 
   const movieData = useSelector((state) => state.getDetailReducer.data);
   const loadDetail = useSelector((state) => state.getDetailReducer.isLoading);
@@ -45,7 +46,11 @@ export default function Movie() {
                     <img
                       className="mx-auto imagePoster"
                       style={{ maxWidth: "500px", borderRadius: "20px" }}
-                      src={movieData.Poster}
+                      src={
+                        movieData.Poster === "N/A"
+                          ? placeholder
+                          : movieData.Poster
+                      }
                       alt=""
                     />
                   </Col>
@@ -96,7 +101,9 @@ export default function Movie() {
           ) : (
             <div>
               <Row className="text-center">
-                <h3 className="text-center">{errorMsg.data.Error || "Network error"}</h3>
+                <h3 className="text-center">
+                  {errorMsg.data.Error || "Network error"}
+                </h3>
               </Row>
             </div>
           )

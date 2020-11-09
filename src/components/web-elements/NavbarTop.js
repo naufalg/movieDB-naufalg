@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+// import { useDispatch } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import { Search, Cart2 } from "react-bootstrap-icons";
+import { Search } from "react-bootstrap-icons";
 import {
   Navbar,
-  NavDropdown,
   Nav,
   Form,
   FormControl,
-  Button,
   Container,
   InputGroup,
   Modal,
@@ -17,23 +15,17 @@ import {
 } from "react-bootstrap";
 import { Film } from "react-bootstrap-icons";
 
-// redux
-// import { getSearchActions } from "../../redux/actions/search.action";
-
-// components
-import reactWord from "../assets/react-word.png";
-
 import "../../styles/navbar.scss";
 
 export default function NavbarBootstrap() {
   const history = useHistory();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const params = useParams();
 
   const searchInput = params.search || null;
 
   const [searchState, setSearchState] = useState({
-    name: searchInput,
+    name: "",
   });
 
   const changeSearch = (event) => {
@@ -53,7 +45,7 @@ export default function NavbarBootstrap() {
   // loading modal variables
   const [showLoading, setShowLoading] = useState(false);
   const handleClose = () => setShowLoading(false);
-  const handleShow = () => setShowLoading(true);
+  // const handleShow = () => setShowLoading(true);
   // loading modal variables
 
   return (
@@ -83,7 +75,7 @@ export default function NavbarBootstrap() {
             }}
             className="NavBrand goldman"
           >
-            <Link>
+            <Link to="/">
               <Film size={30} />
               &nbsp;&nbsp;MovieDB
             </Link>

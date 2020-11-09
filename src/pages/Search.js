@@ -1,20 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useParams, Link, useHistory } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 // redux
 import { getSearchActions } from "../redux/actions/getSearch.action";
 
 // bootstrap
-import {
-  Card,
-  Button,
-  Container,
-  Row,
-  Col,
-  Spinner,
-  CardGroup,
-} from "react-bootstrap";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
 
 // components
 import "../styles/font.scss";
@@ -24,7 +16,7 @@ import NavbarTop from "../components/web-elements/NavbarTop";
 import CardResponsive from "../components/web-elements/CardResponsive";
 
 export default function Search() {
-  const history = useHistory();
+  // const history = useHistory();
   const dispatch = useDispatch();
   const params = useParams();
 
@@ -68,7 +60,6 @@ export default function Search() {
                   searchData.map((item, index) => (
                     <Col key={index} xs={12} md={6} lg={3}>
                       <CardResponsive
-                        
                         movieId={item.imdbID}
                         image={item.Poster}
                         title={item.Title}
@@ -86,7 +77,7 @@ export default function Search() {
               <Row className="mb-3 justify-content-center mx-auto">
                 {totalPage > 1 ? (
                   <SearchPagination
-                  className="text-dark"
+                    className="text-dark"
                     pageNumber={pageNumber}
                     totalPage={totalPage}
                     movieName={searched}
