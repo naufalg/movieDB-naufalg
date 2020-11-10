@@ -57,7 +57,13 @@ npm install
 4. Enter your API in `.env`
 
 ```JS
-REACT_APP_OMDB_API_KEY=ENTER YOUR API;
+REACT_APP_OMDB_API_KEY=ENTER YOUR API
+```
+
+5. Start the react-scripts
+
+```JS
+npm run start
 ```
 
 <!-- CONTACT -->
