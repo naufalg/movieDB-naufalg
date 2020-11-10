@@ -1,17 +1,13 @@
 
 <!-- PROJECT LOGO -->
-<br />
 <p align="center">
   <h3 align="center">Movie DB API Front-end</h3>
-
   <p align="center">
     An awesome README template to jumpstart your projects!
     <br />
-    <br />
-    <br />
     <a href="https://moviedb-naufalg.netlify.app/">View Demo</a>
+  <br/>
     <small>(if you want to view demo, please allow mixed content first in your browser) <a href="https://stackoverflow.com/questions/18321032/how-to-get-chrome-to-allow-mixed-content">allow mixed content</a></small>
-    
   </p>
 </p>
 
