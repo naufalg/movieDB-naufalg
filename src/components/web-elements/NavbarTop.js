@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-// import { useDispatch } from "react-redux";
-import { useParams, Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { useParams, Link, useHistory } from "react-router-dom";
+
+// react bootstrap
 import { Search } from "react-bootstrap-icons";
 import {
   Navbar,
   Nav,
   Form,
-  FormControl,
   Container,
   InputGroup,
   Modal,
@@ -15,21 +14,22 @@ import {
 } from "react-bootstrap";
 import { Film } from "react-bootstrap-icons";
 
+// components
 import "../../styles/navbar.scss";
 
 export default function NavbarBootstrap() {
+  // req
   const history = useHistory();
-  // const dispatch = useDispatch();
   const params = useParams();
 
-  const searchInput = params.search || null;
+  // search movie
+  const searchInput = params.search || "";
 
   const [searchState, setSearchState] = useState({
-    name: "",
+    name: searchInput,
   });
 
   const changeSearch = (event) => {
-    // console.log("event", event);
     setSearchState({
       ...searchState,
       [event.target.name]: event.target.value,
@@ -37,7 +37,6 @@ export default function NavbarBootstrap() {
   };
 
   const searchMovie = (value, event, history) => {
-    console.log("value", value);
     event.preventDefault();
     history.push(`/search/${value}/1`);
   };
@@ -46,7 +45,6 @@ export default function NavbarBootstrap() {
   const [showLoading, setShowLoading] = useState(false);
   const handleClose = () => setShowLoading(false);
   // const handleShow = () => setShowLoading(true);
-  // loading modal variables
 
   return (
     <div>
@@ -96,7 +94,7 @@ export default function NavbarBootstrap() {
                       <Search size={15} />
                     </InputGroup.Text>
                   </InputGroup.Prepend>
-                  <FormControl
+                  <Form.Control
                     size="sm"
                     className="input-search nunito"
                     name="name"

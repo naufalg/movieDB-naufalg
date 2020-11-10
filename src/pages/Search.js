@@ -25,24 +25,19 @@ export default function Search() {
 
   const pageNumber = parseInt(pageNow);
 
-  console.log("pageNow", pageNow);
-
   useEffect(() => {
     dispatch(getSearchActions(searched, pageNow));
   }, [dispatch, searched, pageNow]);
 
   const searchData = useSelector((state) => state.getSearchReducer.data.Search);
-  console.log("searchData", searchData);
 
   const loadData = useSelector((state) => state.getSearchReducer.isLoading);
 
   const pageData = useSelector(
     (state) => state.getSearchReducer.data.totalResults
   );
-  console.log("pageData", pageData);
 
   const totalPage = Math.ceil(pageData / 10);
-  console.log("totalPage", totalPage);
 
   const errorSearch = useSelector((state) => state.getSearchReducer.isError);
   const errorMsg = useSelector((state) => state.getSearchReducer.error);

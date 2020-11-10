@@ -1,12 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+// pages
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Movie from "./pages/Movie";
 
-
-// import "./styles/App.css";
 
 function App() {
   return (

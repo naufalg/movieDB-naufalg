@@ -16,7 +16,6 @@ import NavbarTop from "../components/web-elements/NavbarTop";
 import placeholder from "../components/assets/placeholder-vertical.jpg";
 
 export default function Movie() {
-  // const history = useHistory();
   const dispatch = useDispatch();
   const params = useParams();
 
@@ -31,8 +30,6 @@ export default function Movie() {
   const errorDetail = useSelector((state) => state.getDetailReducer.isError);
   const errorMsg = useSelector((state) => state.getDetailReducer.error);
 
-  console.log("errorDetail", errorDetail);
-
   return (
     <div>
       <NavbarTop className="mb-5" />
@@ -43,6 +40,7 @@ export default function Movie() {
               {movieData ? (
                 <Row className="mt-3">
                   <Col md={12} lg={4} className="text-center">
+                    {/* poster */}
                     <img
                       className="mx-auto imagePoster"
                       style={{ maxWidth: "500px", borderRadius: "20px" }}
@@ -54,10 +52,11 @@ export default function Movie() {
                       alt=""
                     />
                   </Col>
+                  {/* movie info */}
                   <Col className="pl-lg-5 pl-xl-2 mt-4  mt-lg-0" md={12} lg={8}>
                     <h3 className="mb-0">{`${movieData.Title}`}</h3>
                     <h5>{`(${movieData.Year})`}</h5>
-                    <p>
+                    <p className="movieInfo">
                       {movieData.Type ? (
                         <strong>
                           {movieData.Type.replace(
@@ -67,7 +66,10 @@ export default function Movie() {
                         </strong>
                       ) : (
                         ""
-                      )}
+                      )}{" "}
+                      {movieData.Runtime !== "N/A"
+                        ? `(${movieData.Runtime})`
+                        : ""}
                       <br />
                       {movieData.Rated !== "N/A" ? (
                         <strong>{movieData.Rated}</strong>

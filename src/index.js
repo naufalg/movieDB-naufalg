@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./styles/index.css";
 import { Provider } from "react-redux";
+
+// components
+import "./styles/index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import store from "./redux/store";

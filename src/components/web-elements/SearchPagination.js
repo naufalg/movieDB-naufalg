@@ -1,10 +1,8 @@
 import React from "react";
-// import { useHistory } from "react-router-dom";
 
 import { Pagination } from "react-bootstrap";
 
 export default function SearchPagination(props) {
-  //   const history = useHistory();
   const pageNumber = props.pageNumber;
   const totalPage = props.totalPage;
   const movieName = props.movieName;
@@ -53,14 +51,6 @@ export default function SearchPagination(props) {
     window.location.href = `/search/${movieName}/${pageNumber + 2}`;
   };
 
-  //   const goFifthLast = () => {
-  //     window.location.href = `/search/${movieName}/${totalPage - 4}`;
-  //   };
-
-  //   const goFourthLast = () => {
-  //     window.location.href = `/search/${movieName}/${totalPage - 3}`;
-  //   };
-
   const goThirdLast = () => {
     window.location.href = `/search/${movieName}/${totalPage - 2}`;
   };
@@ -72,9 +62,6 @@ export default function SearchPagination(props) {
   const goLastPage = () => {
     window.location.href = `/search/${movieName}/${totalPage}`;
   };
-
-  //   const minusTwoTotal = parseInt(totalPage - 2);
-  //   console.log("minusTwoTotal", minusTwoTotal);
 
   switch (true) {
     case totalPage === 2:

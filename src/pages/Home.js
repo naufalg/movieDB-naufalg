@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+// packages
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import { Form, FormControl, Button, InputGroup } from "react-bootstrap";
+// react-bootstrap
+import { Form, Button, InputGroup } from "react-bootstrap";
 import { Search, Film } from "react-bootstrap-icons";
 
+// components
 import "../styles/home.scss";
 import "../styles/font.scss";
 
 export default function Home() {
   const history = useHistory();
-  const dispatch = useDispatch();
 
   const [searchState, setSearchState] = useState({
     name: "",
@@ -24,7 +25,6 @@ export default function Home() {
   };
 
   const searchMovie = (value, event, history) => {
-    console.log("value", value);
     event.preventDefault();
     history.push(`/search/${value}/1`);
   };
@@ -51,11 +51,11 @@ export default function Home() {
               onChange={(event) => changeSearch(event)}
               value={searchState.name}
               type="text"
-              size="lg"
+              size=""
             />
             <InputGroup.Append>
               <Button variant="secondary">
-                <Search className="m-auto" size={30} />
+                <Search className="m-auto" size={20} />
               </Button>
             </InputGroup.Append>
           </InputGroup>

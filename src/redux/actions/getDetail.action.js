@@ -26,10 +26,7 @@ export const getDetailFailed = (error) => {
 export function getDetailActions(id) {
   return function (dispatch) {
     dispatch(getDetailRequest(id));
-    console.log("tes action detail");
-    // nowPlaying api url
     const movie_id = id;
-    // console.log("movie_id", movie_id);
     const api_key = process.env.REACT_APP_OMDB_API_KEY;
     const url1 = `http://www.omdbapi.com/?i=${movie_id}&plot=full&apikey=${api_key}`;
     axios
