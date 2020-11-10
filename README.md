@@ -20,7 +20,7 @@
 
 ## About The Project
 
-Built the Movie DB front-end for learning and experimenting front-end website development using react.
+Built the Movie DB front-end for learning and experimenting front-end website development using react with search, pagination, and movie detail feature.
 
 ### Built With
 
