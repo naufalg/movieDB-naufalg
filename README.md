@@ -1,12 +1,10 @@
 
 <!-- PROJECT LOGO -->
-<p align="center">
-  <h3 align="center">Movie DB API Front-end</h3>
+  <h3>Movie DB API Front-end</h3>
     <br />
     <a href="https://moviedb-naufalg.netlify.app/">View Demo</a>
   <br/>
     <small>(if you want to view demo, please allow mixed content first in your browser) <a href="https://stackoverflow.com/questions/18321032/how-to-get-chrome-to-allow-mixed-content">allow mixed content</a></small>
-</p>
 
 <!-- TABLE OF CONTENTS -->
 
@@ -66,7 +64,5 @@ npm run start
 <!-- CONTACT -->
 
 ## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
 
 Project Link: [https://github.com/naufalg/movieDB-naufalg](https://github.com/naufalg/movieDB-naufalg)
